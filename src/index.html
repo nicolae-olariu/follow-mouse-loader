@@ -24,6 +24,9 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <p>Load simulation will start in: <span>{{vm.dueTime}}</span></p>
+    <button data-ng-controller="SimulationController as vm" data-ng-click="vm.simulateLoad();">SIMULATE LOAD</button>
+
     <div class="test"></div>
 
     <div follow-mouse listen-for-this-selector=".test" listen-for-this-css-class-on-it="loading"></div>

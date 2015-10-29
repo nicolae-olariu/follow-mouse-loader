@@ -6,7 +6,7 @@
     .directive('followMouse', followMouse);
 
   /** @ngInject */
-  function followMouse($log) {
+  function followMouse() {
     return {
       link: function(scope, elem, attrs) {
         /*------------------------------------------------------------------
@@ -15,8 +15,8 @@
 
         var cssClass = attrs.listenForThisCssClassOnIt,
           selector = attrs.listenForThisSelector,
-          observedElement = $(selector),
-          element = $(elem).find('.follow-mouse-container'),
+          observedElement = angular.element(selector),
+          element = angular.element(elem).find('.follow-mouse-container'),
           eventNamespace = 'follow-mouse';
 
         /*------------------------------------------------------------------
@@ -24,8 +24,6 @@
         ------------------------------------------------------------------*/
 
         var mouseMoveEvent = function(e) {
-          $log.info('mouseMoveEvent');
-
           if (!element.hasClass('show-me')) {
             element.addClass('show-me');
           }
@@ -39,14 +37,14 @@
         },
         bindMouseMove = function() {
           // Bind mousemove with a custom namespace.
-          $('html').on('mousemove' + '.' + eventNamespace, mouseMoveEvent);
+          angular.element('html').on('mousemove' + '.' + eventNamespace, mouseMoveEvent);
         },
         unbindMouseMove = function() {
           // Let's also hide the loader.
           element.removeClass('show-me');
 
           // Let's unbind mousemove within specific namespace.
-          $('html').off('mousemove' + '.' + eventNamespace);
+          angular.element('html').off('mousemove' + '.' + eventNamespace);
         };
 
         if ('MutationObserver' in window && observedElement.length) {
