@@ -1,2 +1,0 @@
-!function(){"use strict";angular.module("followMouseLoader",[])}(),function(){"use strict";function o(){return{link:function(){},templateUrl:"app/components/followMouse/followMouse.html"}}angular.module("followMouseLoader").directive("followMouse",o)}(),angular.module("followMouseLoader").run(["$templateCache",function(o){o.put("app/components/followMouse/followMouse.html",'<div class="follow-mouse-container show-me"></div>')}]);
-//# sourceMappingURL=../maps/scripts/app-6f838b6eae.js.map
